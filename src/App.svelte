@@ -1,56 +1,50 @@
 <script>
-	export let name;
-	let gifs = [];
-	let searchTerm = "";
-
-	async function searchForGif(e) {
-	try {
-		const returnValue = await fetch(`/giphy?term=${searchTerm}`);
-		const response = await returnValue.json();
-		gifs = response.data;
-	} catch (error) {
-		console.error(error);
+	
+	import ToDoInputForm from "./ToDoInputForm.svelte"
+	import ToDoList from "./ToDoList.svelte"
+	let nameEntered = false
+  
+	let Email = ""
+	let userName = ""
+	let password = ""
+  
+	
+	function handleSubmit() {
+  	if (userName && Email && password) {
+    	nameEntered = true
+ 	 }
 	}
-	}
-</script>
-
-<main>
-	<h1>Hello {name}!</h1>
-	<div class="search-block">
-		<input type="text" placeholder="Search for gif" bind:value={searchTerm} />
-		<button on:click={searchForGif}>Search</button>
+  </script>
+  
+  <main>
+  {#if nameEntered}
+	  <h1>Welcome to task manager, {userName}!</h1>
+	  <ToDoInputForm userName={userName} />
+	  <ToDoList />
+	{:else}
+	  <h1>Créez un compte</h1>
+	  <form on:submit|preventDefault={handleSubmit}>
+	  <div>
+		<input bind:value={Email} type="email" placeholder="Email" required>
 	  </div>
-	  <div class="gifs">
-		{#if gifs.length > 0}
-		  <div class="gifs-grid">
-			{#each gifs as gif}
-				<iframe src={gif.embed_url} title={gif.title} />
-			{/each}
-		  </div>
-		 {:else}
-		   No gifs to show yet
-		 {/if}
+	  <div>
+		<input bind:value={userName} type="text" placeholder="Nom d'utilisateur" required>
 	  </div>
-</main>
-
-<style>
+	  <div>
+		<input bind:value={password} type="password" placeholder="Mot de passe" required>
+	  </div>
+	  <button on:click={handleSubmit}>Enregistrer</button>
+	</form>
+	{/if}
+	
+  </main>
+  
+  
+  <style>
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	  text-align: center;
+	  padding: 1em;
+	  max-width: 450px;
+	  margin: 0 auto;
 	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+  </style>
