@@ -14,8 +14,8 @@ CREATE TABLE "status"
     "id"            serial  NOT NULL,
     "definition"    text    NOT NULL,
     "designation"   text    NOT NULL,
-    PRIMARY("id"),
-    UNIQUE ("def","designation")
+    PRIMARY KEY("id"),
+    UNIQUE ("definition","designation")
 );
 
 CREATE TABLE "type"
@@ -23,17 +23,17 @@ CREATE TABLE "type"
     "id"            serial  NOT NULL,
     "definition"    text    NOT NULL,
     "designation"   text    NOT NULL,
-    
-    UNIQUE ("def","designation")
+    PRIMARY KEY("id"),
+    UNIQUE ("definition","designation")
 );
 
-CREATE TABLE "categories"
+CREATE TABLE "category"
 (
     "id"            serial  NOT NULL,
     "definition"    text    NOT NULL,
     "designation"   text    NOT NULL,
-    PRIMARY("id"),
-    UNIQUE ("def","designation")
+    PRIMARY KEY("id"),
+    UNIQUE ("definition","designation")
 );
 
 CREATE TABLE "media"
@@ -42,13 +42,13 @@ CREATE TABLE "media"
     "fk_type"               integer NOT NULL, 
     "title"                 text    NOT NULL,
     "season_volume"         text    NOT NULL,
-    "fk_category"           text    NOT NULL,
+	"fk_category"           integer	NOT NULL,
     "year"                  integer NOT NULL,
     "author_director"       text,
     "nb_episodes_chapters"  integer,
     "score"                 real,  
-    PRIMARY("id"),
-    UNIQUE ("title","type","year","season_volume")
+    PRIMARY KEY("id"),
+    UNIQUE ("title","fk_type","year","season_volume")
 );
 
 CREATE TABLE "userMedia"
@@ -59,7 +59,7 @@ CREATE TABLE "userMedia"
     "fk_status"     integer     NOT NULL,
     "hd_creation"   date        DEFAULT Now(),
     "active"        boolean     DEFAULT TRUE,
-    PRIMARY("id"),
+    PRIMARY KEY("id"),
     UNIQUE("fk_iduser","fk_idmedia","hd_creation")
 );
 
@@ -67,7 +67,7 @@ ALTER TABLE "media" ADD FOREIGN KEY ("fk_type") REFERENCES "type"("id");
 
 ALTER TABLE "media" ADD FOREIGN KEY ("fk_category") REFERENCES "category"("id");
 
-ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_iduser") REFERENCES "user"("id");
+ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_iduser") REFERENCES "users"("id");
 
 ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_idmedia") REFERENCES "media"("id");
 
