@@ -9,7 +9,7 @@ CREATE TABLE "users"
     UNIQUE ("name","mail")
 );
 
-CREATE TABLE "status"
+CREATE TABLE "statusW"
 (
     "id"            serial  NOT NULL,
     "definition"    text    NOT NULL,
@@ -71,4 +71,4 @@ ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_iduser") REFERENCES "users"("id");
 
 ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_idmedia") REFERENCES "media"("id");
 
-ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_status") REFERENCES "status"("id");
+ALTER TABLE "userMedia" ADD FOREIGN KEY ("fk_status") REFERENCES "statusW"("id");
