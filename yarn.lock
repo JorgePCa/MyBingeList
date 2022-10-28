@@ -969,6 +969,11 @@
   dependencies:
     "picomatch" "^2.2.1"
 
+"regexparam@2.0.1":
+  "integrity" "sha512-zRgSaYemnNYxUv+/5SeoHI0eJIgTL/A2pUtXUPLHQxUldagouJ9p+K6IbIZ/JiQuCEv2E2B1O11SjVQy3aMCkw=="
+  "resolved" "https://registry.npmjs.org/regexparam/-/regexparam-2.0.1.tgz"
+  "version" "2.0.1"
+
 "require-relative@^0.8.7":
   "integrity" "sha512-AKGr4qvHiryxRb19m3PsLRGuKVAbJLUD7E6eOaHkfKhwc+vSgVOCY5xNvm9EkolBKTOf0GrQAZKLimOCz81Khg=="
   "resolved" "https://registry.npmjs.org/require-relative/-/require-relative-0.8.7.tgz"
@@ -1170,6 +1175,13 @@
   "integrity" "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
+
+"svelte-spa-router@^3.3.0":
+  "integrity" "sha512-cwRNe7cxD43sCvSfEeaKiNZg3FCizGxeMcf7CPiWRP3jKXjEma3vxyyuDtPOam6nWbVxl9TNM3hlE/i87ZlqcQ=="
+  "resolved" "https://registry.npmjs.org/svelte-spa-router/-/svelte-spa-router-3.3.0.tgz"
+  "version" "3.3.0"
+  dependencies:
+    "regexparam" "2.0.1"
 
 "svelte@^3.0.0", "svelte@>=3.5.0":
   "integrity" "sha512-bS4odcsdj5D5jEg6riZuMg5NKelzPtmsCbD9RG+8umU03TeNkdWnP6pqbCm0s8UQNBkqk29w/Bdubn3C+HWSwA=="

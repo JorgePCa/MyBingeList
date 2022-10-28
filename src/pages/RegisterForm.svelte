@@ -14,7 +14,7 @@
   </script>
   
   <h1>Créez un compte</h1>
-  <form on:submit|preventDefault={handleSubmit}>
+  <form on:submit|preventDefault={handleSubmit} href="/">
   <div>
     <input bind:value={Email} type="email" placeholder="Email" required>
   </div>
