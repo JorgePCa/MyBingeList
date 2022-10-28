@@ -5,7 +5,7 @@ const type = require('./type');
 const category = require('./category');
 const userMedia = require('./userMedia');
 
-module.exports = app => {
+module.exports = api => {
   app.use('/users', users);
   app.use('/media', media);
   app.use('/statusW', statusW);

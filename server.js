@@ -4,8 +4,14 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
+import {users} from 'api';
+import { getUserById } from './api/crud/users';
 
 app.use(cors());
+
+app.get('/getUser', (req, res) => {
+   getUser();
+})
 
 app.get('/giphy', (req, res) => {
    console.log(`Searching for a gif with the term: ${req.query.term}`);
