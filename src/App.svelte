@@ -1,49 +1,18 @@
 <script>
-    import RegisterForm from "./RegisterForm.svelte";
+    import RegisterForm from "./pages/RegisterForm.svelte";
+	import Home from "./pages/Home.svelte";
+	import NotFound from "./pages/NotFound.svelte";
 
+	import router from 'pages';
    
-
-	let nameEntered = false
-
-	let createAccount = false
-
-	
-	let research = ""
-
-	function Find() {
-
-	}
-	function CreateAccountPage(){
-
-    	createAccount = true
-	}
-	function handleSubmit() {
-  	if (userName && Email && password) {
-    	nameEntered = true
- 	 }
-	}
-  </script>
+	let page;
+	let params;
+	router('/', () => page = Home);
+	router('/registerform', () => page = RegisterForm);
+	router('/content/:id', (ctx, next) =>{
+		params = ctx.params;
+		next();
+	}, () => page = Content);
+	router('/*', () => (page = NotFound));
+</script>
   
-  <main>
-
-
-	{#if createAccount}
-	  <RegisterForm/>
-	{:else}
-	<input bind:value={research} type="text" placeholder="Anime, catégorie, ...">
-	<button on:click={Find}>Rechercher</button>
-	<button on:click={CreateAccountPage}>Créez un compte</button>
-
-	{/if}
-	
-  </main>
-  
-  
-  <style>
-	main {
-	  text-align: center;
-	  padding: 1em;
-	  max-width: 450px;
-	  margin: 0 auto;
-	}
-  </style>
