@@ -1,14 +1,22 @@
 <script>
-	
-	import ToDoInputForm from "./ToDoInputForm.svelte"
-	import ToDoList from "./ToDoList.svelte"
+    import RegisterForm from "./RegisterForm.svelte";
+
+   
+
 	let nameEntered = false
-  
-	let Email = ""
-	let userName = ""
-	let password = ""
-  
+
+	let createAccount = false
+
 	
+	let research = ""
+
+	function Find() {
+
+	}
+	function CreateAccountPage(){
+
+    	createAccount = true
+	}
 	function handleSubmit() {
   	if (userName && Email && password) {
     	nameEntered = true
@@ -17,24 +25,15 @@
   </script>
   
   <main>
-  {#if nameEntered}
-	  <h1>Welcome to task manager, {userName}!</h1>
-	  <ToDoInputForm userName={userName} />
-	  <ToDoList />
+
+
+	{#if createAccount}
+	  <RegisterForm/>
 	{:else}
-	  <h1>Créez un compte</h1>
-	  <form on:submit|preventDefault={handleSubmit}>
-	  <div>
-		<input bind:value={Email} type="email" placeholder="Email" required>
-	  </div>
-	  <div>
-		<input bind:value={userName} type="text" placeholder="Nom d'utilisateur" required>
-	  </div>
-	  <div>
-		<input bind:value={password} type="password" placeholder="Mot de passe" required>
-	  </div>
-	  <button on:click={handleSubmit}>Enregistrer</button>
-	</form>
+	<input bind:value={research} type="text" placeholder="Anime, catégorie, ...">
+	<button on:click={Find}>Rechercher</button>
+	<button on:click={CreateAccountPage}>Créez un compte</button>
+
 	{/if}
 	
   </main>
