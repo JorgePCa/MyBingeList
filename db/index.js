@@ -1,3 +1,5 @@
+const crud = require('./crud');
+
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -7,6 +9,7 @@ const pool = new Pool({
     "password": "productys",
     "database": "MyBingeListDB"
 });
+
 
 module.exports = {
     query: (text,params) => pool.query(text, params), 
