@@ -18,6 +18,7 @@
 	router('/*', () => (page = NotFound));
 
 	router.start();
+
 </script>
   
 

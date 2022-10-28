@@ -1,15 +1,11 @@
 <script>
-   
+
+    import {link} from 'svelte-spa-router'
     let research = ""
-    
 
 	function Find() {
 
 	}	
-	function CreateAccountPage(){
-        
-	}
-
 
 </script>
 <main>
@@ -18,7 +14,7 @@
         <h1>My Binge List</h1>
         <div class="align-right">
         
-            <button on:click={CreateAccountPage}>Créez un compte</button>
+            <a href="registerform">Créez un compte</a>
         </div>
     </div>
     <div class="research-bar">
@@ -52,5 +48,10 @@
     }
     .sidebar-skype .align-right {
 	    display: inline-block;
+    }
+    a{
+        background-color: white;
+        border: 1px solid black;
+        
     }
 </style>
