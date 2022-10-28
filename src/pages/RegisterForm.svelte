@@ -26,4 +26,18 @@
   </div>
   <button on:click={handleSubmit}>Enregistrer</button>
 </form>
-  
+
+<style>
+    form {
+	  text-align: center;
+	  padding: 1em;
+	  max-width: 450px;
+	  margin: 0 auto;
+	}
+    h1 {
+	  text-align: center;
+	  padding: 1em;
+	  max-width: 450px;
+	  margin: 0 auto;
+	}
+</style>
