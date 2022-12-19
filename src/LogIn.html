@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Binge List</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="login">
+        <div class="container">
+            <form id="app"
+                @submit="checkForm"
+                action="App.html"
+                novalidate="true"
+                >
+                <p v-if="errors.length">
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                      <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                  </p>
+                <div class="form-group">
+                    <label for="Username">Username or Email</label>
+                    <input type="text" class="form-control" v-model="username" placeholder="Enter username or Email"/>
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    
+                    <input type="password"  class="form-control"v-model="password" placeholder="Enter password"/>
+                </div>
+                <div class="form-check"></div>
+                <button class="btn btn-primary" >Connexion</button>
+                
+            </form>
+            
+        </div>
+
+    </div>
+
+    <script>
+        var login = new Vue({
+            el: "#login",
+            data:{
+                errors : [],
+                username : null,
+                password : null,
+            },
+            methods:{
+                checkForm: function(e){
+                    if(this.username){
+                        if(validEmail(this.username)){
+                            if(this.password){return true;}
+                        }else{
+                            if(this.password){return true;}
+                        }
+                    }
+                   
+
+                    this.errors = [];
+                    if (!this.username) {
+                        this.errors.push('Username required.');
+                    }
+                    if (!this.password) {
+                        this.errors.push('Password required.');
+                    
+                    }
+                    e.preventDefault();
+                    
+                },
+                validEmail: function (email) {
+                    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return re.test(email);
+                },
+                
+            }
+
+        })
+    </script>
+</body>
+</html>
