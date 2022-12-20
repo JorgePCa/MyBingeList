@@ -4,28 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Binge List</title>
-
+    <link rel="stylesheet" href="App.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 
     <div id="app">
-        <h3>My Binge List</h3>
-        <form id="app" action="LogIn.html">
-            <button  class="btn btn-primary">Login</button>       
-        </form>
-        <form id="app" action="CreateAccount.html">
-            <button  class="btn btn-primary" >Create Account</button>
-        </form>
+        <div id="allupbar">
+            <div class=container >
+                <div class="row" id="centerupbar">
+                    <form class="col align-self-center" id="myaccount" action="MyAccount.html">  
+                        <button  class="btn btn-primary" >My Account</button>
+                    </form>
+                    <h3 class="col align-self-center">My Binge List</h3>
+                    <form class="col-auto row align-self-center" id="login" action="LogIn.html">
+                        <button  class="btn btn-primary">Login</button>       
+                    </form>
+                    <form class="col-auto row align-self-center" id="createaccount" action="CreateAccount.html">
+                        <button  class="btn btn-primary" >Create Account</button>
+                    </form>
+                </div>
 
+            
+            </div>
+        </div>
+        <div class="container" id="searchbar">
+
+            <div class="align-self-center" id="searchform">
+                <form class="form-inline my-sm-3" @submit="SearchBinge" id="fix">
+                    <div class="input-group mb-3">
+                        <input class="form-control" v-model="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-primary">Search</button>
+                        </div>
+                    </div>
+                            
+                </form> 
+            </div>
+                
+        </div>
+        <div id="content">
+            <!-- mettre les binge ici-->
+        <div>test</div>
+
+        </div>
+        
     </div>
 
     <script>
         var app = new Vue({
-            el: "#app"
+            el: "#app",
+            data : { 
+                search : null,},
+            methods:{
+                SearchBinge: function(){
+
+                }
+            }
         })
     </script>
 
-</html>
 </body>
+
+</html>
+
+
