@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_type: {
       allowNull: false,
@@ -28,23 +28,23 @@ module.exports = (sequelize, DataTypes) => {
         model: 'type',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     title: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     season_volume: {
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     year: {
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     score: {
       allowNull: false,
-      type: Sequelize.REAL
+      type: DataTypes.REAL
     }
   }, {
     sequelize,

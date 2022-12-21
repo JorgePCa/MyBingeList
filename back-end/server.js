@@ -16,7 +16,7 @@ app.use(express.json());  /* bodyParser.json() is deprecated */
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
 
-const db = require("./app/models");
+const db = require("./db/models");
 db.sequelize.sync();
 
 // // drop the table if it already exists
@@ -29,7 +29,15 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./routes/user.routes")(app);
+require("./routes/statusw.routes")(app);
+// require("./routes/category.routes")(app);
+// require("./routes/type.routes")(app);
+// require("./routes/media.routes")(app);
+// require("./routes/usermedia.routes")(app);
+// require("./routes/mediacategory.routes")(app);
+
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

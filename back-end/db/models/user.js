@@ -19,27 +19,28 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     name: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     mail: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     birth_date: {
       allowNull: false,
-      type: Sequelize.DATE
+      type: DataTypes.DATE
     },
     password: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     sequelize,
     tableName:'user',
+    underscored: true,
     modelName: 'User',
   });
   return User;

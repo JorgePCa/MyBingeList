@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_media: {
       allowNull: false,
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'media',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_category: {
       allowNull: false,
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'category',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     }
   }, {
     sequelize,

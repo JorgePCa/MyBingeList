@@ -19,18 +19,19 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     definition: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     description: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     sequelize,
+    underscored: true,
     tableName: 'statusW',
     modelName: 'StatusW',
   });

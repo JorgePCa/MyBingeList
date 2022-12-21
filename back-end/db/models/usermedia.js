@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_user: {
       allowNull: false,
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'user',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_media: {
       allowNull: false,
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'media',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     fk_status: {
       allowNull: false,
@@ -45,11 +45,11 @@ module.exports = (sequelize, DataTypes) => {
         model: 'statusW',
         key: 'id'
       },
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     active: {
       allowNull: false,
-      type: Sequelize.BOOLEAN
+      type: DataTypes.BOOLEAN
     }
   }, {
     sequelize,
