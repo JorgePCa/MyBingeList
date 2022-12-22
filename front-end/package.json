@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^2.0.1",
+    "@auth0/auth0-vue": "^1.0.2",
     "vue": "^3.2.45"
   },
   "devDependencies": {
