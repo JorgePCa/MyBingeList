@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@auth0/auth0-vue": "^1.0.2",
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2"
   }

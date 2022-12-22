@@ -1,10 +1,68 @@
 <template>
 <h1>My Binge List</h1>
 <router-link :to="{name:'myAccount'}"><button class="foo bar">My Account</button></router-link>
-<router-link :to="{name:'login'}"><button class="foo bar">Log In</button></router-link>
-<router-link :to="{name:'createAccount'}"><button class="foo bar">Create Account</button></router-link>
-
+<div v-if="!AuthState.loading">
+      <div v-if="!AuthState.isAuthenticated">
+        <button @click="login()" class="btn btn-primary">Login</button>
+      </div>
+  
+      <div v-else>
+        <p> Welcome to VueAuth <strong>{{ AuthState.user.name }}</strong></p>
+        <button @click="logout()" class="btn btn-secondary">Logout</button>
+      </div>
+    </div>
+  
+    <div v-else>
+      Loading ...
+    </div>
 </template>
 
 <script setup>
+  import { useAuth0, AuthState } from "../utils/useAuth0";
+  const { login, logout, initAuth } = useAuth0(AuthState);
+  
+  initAuth();
 </script>
+
+<script>
+ export default {
+    methods: {
+      login() {
+        this.$auth0.loginWithRedirect();
+      }
+    }
+  };
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.btn {
+  padding: 8px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  border: none;
+  cursor: pointer;
+  min-width: 100px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  background: #aaa;
+  color: white;
+}
+</style>
