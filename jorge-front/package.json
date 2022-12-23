@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "jorge-front",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,14 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^2.0.1",
-    "@auth0/auth0-vue": "^1.0.2",
+    "auth0": "^3.0.1",
     "axios": "^1.2.1",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.0.0",
-    "vue-router": "4"
+    "vite": "^4.0.0"
   }
 }
