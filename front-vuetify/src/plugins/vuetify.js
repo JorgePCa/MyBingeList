@@ -1,0 +1,21 @@
+// Styles
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
+
+// Vuetify
+import { createVuetify } from 'vuetify'
+
+export default createVuetify({
+  // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+    theme: {
+      themes: {
+        light: {
+          primary: '#41B883'
+        },
+        dark: {
+          primary: '#34495E'
+        }
+      }
+    },
+  }
+)

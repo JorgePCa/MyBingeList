@@ -1,10 +1,13 @@
 module.exports = app => {
-    const categories = require("../controllers/category.controller.js");
+    const admin = require("../controllers/admin.controller.js");
   
     var router = require("express").Router();
+
+    // Update categories
+    router.get("/categories", admin.updateCategories);
   
-    // Create a new Tutorial
-    router.post("/", categories.create);
+    // // Create a new Tutorial
+    // router.post("/", users.create);
   
     // // Retrieve all Users
     // router.get("/", users.findAll);
@@ -18,6 +21,6 @@ module.exports = app => {
     // // Delete a User with id
     // router.delete("/:id", users.delete);
   
-    app.use("/api/category", router);
+    app.use("/api/admin", router);
   };
   
