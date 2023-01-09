@@ -5,7 +5,6 @@ const Category = db.Category;
 const axios = require("axios");
 
 exports.updateCategories = async (req, res) => {
-    let genresExtracted = [];
     try {
         const response = await axios.get('https://api.themoviedb.org/3/genre/movie/list', {
         params: {
@@ -22,12 +21,16 @@ exports.updateCategories = async (req, res) => {
             };
             console.log(genre);
 
-            if (!req.body.name) {
-                res.status(400).send({
-                  message: "Content can not be empty!"
-                });
-                return;
-            }
+            // remove this part from user and category to work
+
+            // console.log(req.body.name);
+
+            // if (!req.body.name) {
+            //     res.status(400).send({
+            //       message: "Content can not be empty!"
+            //     });
+            //     return;
+            // }
             
             Category.create(genre);
         };
