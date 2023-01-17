@@ -41,3 +41,4 @@ exports.updateCategories = async (req, res) => {
     }
 
 }
+

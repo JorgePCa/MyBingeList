@@ -46,6 +46,26 @@ module.exports = {
       ],
       {}
     );
+    await queryInterface.bulkInsert(
+      'type',
+      [
+        {
+          id: 1,
+          definition: "Movie",
+          description: "Movie",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 2,
+          definition: "Series",
+          description: "Series",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+      ],
+      {}
+    );
 
 
 

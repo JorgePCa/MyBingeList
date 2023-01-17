@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     year: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     score: {
       allowNull: false,
