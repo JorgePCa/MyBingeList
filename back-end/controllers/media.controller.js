@@ -2,6 +2,8 @@ const db = require("../db/models");
 const Media = db.Media;
 const Op = db.Sequelize.Op;
 
+const axios = require("axios");
+
 // Create and Save a new Media
 exports.create = (req, res) => {
   
@@ -68,6 +70,22 @@ exports.findOne = (req, res) => {
       });
     });
 };
+
+exports.findTMDB = (req, res) => {
+  const search = req.params.search;
+
+  try{
+    const response = await axios.get('',{
+      params: {
+        api_key: 'ab7fa3f792c17d4471d45e57473b8d62',
+        language: 'fr-FR',
+        
+      }
+    }
+   )
+  }
+
+}
 
 
 

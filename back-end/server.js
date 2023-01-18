@@ -37,7 +37,7 @@ require("./routes/statusw.routes")(app);
 require("./routes/admin.routes")(app);
 require("./routes/category.routes")(app);
 // require("./routes/type.routes")(app);
-// require("./routes/media.routes")(app);
+require("./routes/media.routes")(app);
 // require("./routes/usermedia.routes")(app);
 // require("./routes/mediacategory.routes")(app);
 
