@@ -2,7 +2,8 @@
   <v-app :dark="darkMode">
     <!-- Button to toggle the side menu -->
     <v-app-bar app style="background-color: #777777;">
-      <v-toolbar-title class="toolbartitle" style="font-weight:bold; font-size:x-large;" >My Binge List</v-toolbar-title>     
+      
+      <v-toolbar-title> <v-btn class="toolbartitle" style="font-weight:bold; font-size:x-large; background-color:forestgreen;"  color="black"  to="/">MyBingeList </v-btn></v-toolbar-title>     
       <v-btn
       icon = "mdi-magnify" 
       to="/searchPage">
@@ -48,12 +49,12 @@ export default {
       drawer: false, // initially hide the side menu,
       theme: 'light', // initially light mode,
       items: [
-        { title: 'Home', action: '/home' },
-        { title: 'About', action: '/home' },
-        { title: 'Contact', action: '/home' }
+        { title: 'Home', action: '/' },
+        { title: 'About', action: '/' },
+        { title: 'Contact', action: '/' }
       ],
       itemLog: [
-        { title: 'Log In',action: '/login'},
+        { title: 'Log In',action: '/myaccount'},
         { title: 'Log Out'}
       ]
     }
