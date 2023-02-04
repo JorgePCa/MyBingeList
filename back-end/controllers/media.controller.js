@@ -71,7 +71,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.findTMDB = (req, res) => {
+exports.findTMDB = async (req, res) => {
   const search = req.params.search;
 
   try{
@@ -83,7 +83,10 @@ exports.findTMDB = (req, res) => {
       }
     }
    )
-  }
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);    
+}
 
 }
 

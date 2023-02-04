@@ -1,14 +1,34 @@
 <template class="global">
   <v-app :dark="darkMode">
     <!-- Button to toggle the side menu -->
-    <v-app-bar app>
-      <v-toolbar-title class="toolbartitle" color="primary" style="font-weight:bold; font-size:x-large;" >My Binge List</v-toolbar-title>
-      <v-btn icon="mdi-account" @click="drawer = !drawer"></v-btn>
-      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
+    <v-app-bar app style="background-color: #777777;">
+      <v-toolbar-title class="toolbartitle" style="font-weight:bold; font-size:x-large;" >My Binge List</v-toolbar-title>     
+      <v-btn
+      icon = "mdi-magnify" 
+      to="/searchPage">
+      </v-btn>
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-btn
+            icon="mdi-account"
+            v-bind="props"
+          >
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(item, index) in itemLog"
+            :key="index"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>      
+      <v-btn icon="mdi-menu" @click="drawer = !drawer"></v-btn>
     </v-app-bar>
 
     <!-- Side menu -->
-    <v-navigation-drawer style="background: linear-gradient(rgba(82, 231, 69, 0.34), rgba(143, 221, 136, 0.34));;" 
+    <v-navigation-drawer style="background: linear-gradient(rgba(777, 777, 777, 0.34), rgba(777, 777, 777, 1));;" 
     location="right" v-model="drawer" app>
       <!-- Menu items -->
       <v-list>
@@ -25,27 +45,20 @@
 export default {
   data() {
     return {
-      menuItems: [
-        {title: 'Action 1' },
-        {title: 'Action 2' },
-      ],
       drawer: false, // initially hide the side menu,
       theme: 'light', // initially light mode,
       items: [
         { title: 'Home', action: () => {} },
         { title: 'About', action: () => {} },
         { title: 'Contact', action: () => {} }
+      ],
+      itemLog: [
+        { title: 'Log In'},
+        { title: 'Log Out'}
       ]
     }
   },
-  methods: {
-    toggleTheme(){
-      if (this.theme === 'light') {
-      this.theme = 'dark'
-    } else {
-      this.theme = 'light'
-    }
-    }
+  methods: {  
   }
 }
 </script>

@@ -26,6 +26,11 @@ const routes = [
         path : "/myaccount",
         name : "myAccount",
         component: () => import("./components/MyAccount.vue")
+    },
+    {
+        path : "/searchPage",
+        name : "searchPage",
+        component: () => import("./components/SearchPage.vue")
     }
 ];
 
