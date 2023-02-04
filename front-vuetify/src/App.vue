@@ -18,7 +18,7 @@
         <v-list>
           <v-list-item
             v-for="(item, index) in itemLog"
-            :key="index"
+            :key="index" :to="item.action"
           >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
@@ -33,7 +33,7 @@
       <!-- Menu items -->
       <v-list>
         <v-list-item v-for="item in items" 
-        :key="item.title" @click="item.action">
+        :key="item.title" :to="item.action">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -48,12 +48,12 @@ export default {
       drawer: false, // initially hide the side menu,
       theme: 'light', // initially light mode,
       items: [
-        { title: 'Home', action: () => {} },
-        { title: 'About', action: () => {} },
-        { title: 'Contact', action: () => {} }
+        { title: 'Home', action: '/home' },
+        { title: 'About', action: '/home' },
+        { title: 'Contact', action: '/home' }
       ],
       itemLog: [
-        { title: 'Log In'},
+        { title: 'Log In',action: '/login'},
         { title: 'Log Out'}
       ]
     }

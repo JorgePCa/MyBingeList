@@ -1,28 +1,25 @@
 <template>
-    <h1>Log In</h1>
-    <p v-if="errors.length">
-        <b>Please correct the following error(s):</b>
-        <ul>
-            <li v-for="error in errors">{{ error }}</li>
-        </ul>
-    </p>
-    <div class="form-group">
-        <label>Username or Email  </label>
+    <v-h1>Log In</v-h1>
+    <v-p v-if="errors.length">
+        <v-b>Please correct the following error(s):</v-b>
+        <v-list>
+            <v-list-item v-for="error in errors">{{ error }}</v-list-item>
+        </v-list>
+    </v-p>
+    <v-div class="form-group">
+        <v-label>Username or Email  </v-label>
         <br />
-        <input type="text" class="form-control" v-model="username" placeholder="Enter username or Email"/>
+        <v-input type="text" class="form-control" v-model="username" placeholder="Enter username or Email"/>
         <br />
         <br />
-    </div>
-    <div class="form-group">
-        <label for="Password">Password  </label>
+    </v-div>
+    <v-div class="form-group">
+        <v-label for="Password">Password  </v-label>
         <br />           
-        <input type="password"  class="form-control" v-model="password" placeholder="Enter password"/>
+        <v-input type="password"  class="form-control" v-model="password" placeholder="Enter password"/>
         <br />
         <br />
-    </div>
-    
-    <router-link :to="{name:'home'}"> <button class="foo bar" >Send</button></router-link>            
-    <router-link :to="{name:'home'}"><button class="foo bar">Home</button></router-link>
+    </v-div>
     
 </template>
 
