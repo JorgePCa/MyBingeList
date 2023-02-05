@@ -12,14 +12,12 @@ const app = createApp(App);
 
 // app.component();
 
-app.use(vuetify);
-
 // createApp(App)
 //   .use(vuetify)
 //   .mount('#app');
 
 
-app.use(router).use(
+app.use(vuetify).use(router).use(
     createAuth0({
       domain: "dev-ztxv7mlnzq07l4p2.us.auth0.com",
       client_id: "r0FAyZOlPqeu8axhLyYfi1yPmwqGpLkH",

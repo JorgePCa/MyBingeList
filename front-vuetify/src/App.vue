@@ -39,7 +39,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <router-view/>
   </v-app>
+ 
 </template>
 
 <script>
