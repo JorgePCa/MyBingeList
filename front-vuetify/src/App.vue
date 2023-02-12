@@ -39,7 +39,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <router-view/>
+    <v-container fluid ma-0 pa-0 fill-height>
+      <router-view/>
+    </v-container>
   </v-app>
  
 </template>
