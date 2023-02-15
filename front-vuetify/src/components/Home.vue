@@ -18,9 +18,7 @@
             >
                 <v-item v-slot="{ active, toggle }">
                 <v-img
-                    :src=getPoster(item.poster_path)
-                    height="150"
-                    class="text-right pa-2"
+                    :src=item.item 
                     @click="toggle"
                 >
                 </v-img>
@@ -37,11 +35,11 @@
 <script>
  export default{
     data : ()=>({
-        items: []
+        items:[]
     }),
     mounted: async function(){
-        const rep = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=ab7fa3f792c17d4471d45e57473b8d62&with_genres=28&page=10');
-        this.items = await rep.json();
+        const rep = await fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
+        this.data.items = rep.json().poster_path;
 
     }
  };
@@ -49,7 +47,6 @@
 
 </script>
 <script setup>
-function getPoster(poster_path){
-    return fetch('https://image.tmdb.org/t/p/original/',{poster_path})
- }
+
+
 </script>

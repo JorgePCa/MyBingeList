@@ -18,7 +18,7 @@
             <input type="password" class="form-control" v-model="password" placeholder="Enter password"/>
             <br />
             <br />
-            <v-btn> Login </v-btn>
+            <v-btn @click="checkForm()"> Login </v-btn>
 
         </div>
         <div v-if="!AuthState.loading">
