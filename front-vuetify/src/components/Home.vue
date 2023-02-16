@@ -7,10 +7,12 @@ const items = ref([])
 var tmp = [];
 
 onMounted(()=>{
+    fetch("https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1")
+    .then(response => response.json());
     const rep = fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
-    console.log(rep);
+    console.log(response);
 
-    tmp = rep;
+    tmp = response;
     console.log(tmp);
     
     for (var i in rep)
@@ -40,6 +42,10 @@ function getPoster(poster_path){
         return "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg";
     }
     
+};
+
+function getMovie(id){
+
 }
 
 </script>
@@ -57,7 +63,7 @@ function getPoster(poster_path){
             
                 <v-img
                     :src=getPoster(item.poster_path) 
-                    @click="toggle"
+                    @click="getMovie(item.id)"
                 >
                 </v-img> 
            

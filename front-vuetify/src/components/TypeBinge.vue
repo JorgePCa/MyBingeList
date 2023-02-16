@@ -12,13 +12,21 @@
     <router-link :to="{name:'home'}"><button class="foo bar">Home</button></router-link>
 </template>
 
-<script setup>
-    var image = null;
+
+<script>
+    var image = this.$route.query.id;
     var title = null;
     var tag = null;
     var description = null;
-    function getImageUrl(name) {
-        return new URL(`./dir/${name}.png`, import.meta.url).href
-    };
+ export default{
+    data : ()=>({
+        items: []
+    }),
+    mounted: async function(){
+        const rep = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=ab7fa3f792c17d4471d45e57473b8d62&with_genres=28&page=10');
+
+    }
+ };
+ 
 
 </script>
