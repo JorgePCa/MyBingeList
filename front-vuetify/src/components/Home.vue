@@ -1,6 +1,50 @@
+<script setup>
+import { onMounted } from 'vue';
+import { ref } from 'vue';
+
+const items = ref([])
+
+var tmp = [];
+
+onMounted(()=>{
+    const rep = fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
+    console.log(rep);
+
+    tmp = rep;
+    console.log(tmp);
+    
+    for (var i in rep)
+    {
+        var item = rep[i];
+
+        items.push({
+            "poster_path" : item.poster_path,
+            "title" : item.title
+        })
+    }
+    console.log("ITEMS !!!");
+    console.log(items);
+;
+});
+
+function getPoster(poster_path){
+    if(poster_path!=null && poster_path!=""){
+
+        var full_link="https://image.tmdb.org/t/p/original/"
+        full_link.concat(poster_path);
+        console.log(poster_path);
+        
+        console.log(full_link);
+        return full_link;
+    }else{
+        return "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg";
+    }
+    
+}
+
+</script>
+
 <template>
-
-
     <v-container fluid ma-0 pa-0 fill-height>
         <v-list lines="one">
            
@@ -43,42 +87,4 @@
 
 </template>
 
-<script>
- export default{
-    data() {
-        return {items:[{poster_path:"",name:""}]}
-        
-    },
-    
 
- };
-
- 
-
-</script>
-<script setup>
-import { onMounted } from 'vue';
-
-onMounted(()=>{
-    const rep = fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
-    rep=JSON.parse(rep);
-    this.items.poster_path = rep.json().poster_path;
-    this.items.name = rep.json().name;
-});
- 
-function getPoster(poster_path){
-    if(poster_path!=null && poster_path!=""){
-
-        var full_link="https://image.tmdb.org/t/p/original/"
-        full_link.concat(poster_path);
-        console.log(poster_path);
-        
-        console.log(full_link);
-        return full_link;
-    }else{
-        return "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg";
-    }
-    
-}
-
-</script>
