@@ -1,5 +1,5 @@
 <template>
-<body >
+
 
     <v-container fluid ma-0 pa-0 fill-height>
         <v-list lines="one">
@@ -40,7 +40,7 @@
        
     </v-container>
 
-</body>
+
 </template>
 
 <script>
@@ -50,19 +50,21 @@
         
     },
     
-    methods: async function(){
-        
-        const rep = await fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
-        rep=JSON.parse(rep);
-        this.items.poster_path = rep.json().poster_path;
-        this.items.name = rep.json().name;
-    }
+
  };
+
  
 
 </script>
 <script setup>
+import { onMounted } from 'vue';
 
+onMounted(()=>{
+    const rep = fetch('https://api.themoviedb.org/3/trending/all/day?api_key=ab7fa3f792c17d4471d45e57473b8d62&page=1');
+    rep=JSON.parse(rep);
+    this.items.poster_path = rep.json().poster_path;
+    this.items.name = rep.json().name;
+});
  
 function getPoster(poster_path){
     if(poster_path!=null && poster_path!=""){
@@ -76,7 +78,7 @@ function getPoster(poster_path){
     }else{
         return "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg";
     }
-
+    
 }
 
 </script>

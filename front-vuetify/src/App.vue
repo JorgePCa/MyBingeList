@@ -39,9 +39,12 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-container fluid>
+    <body>
+      <v-container fluid>
       <router-view fluid/>
     </v-container>
+    </body>
+    
   </v-app>
  
 </template>
